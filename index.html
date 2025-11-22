@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valoración Económica Lago Poopó</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <div class="header-content">
+                <h1>Restauración del Lago Poopó</h1>
+                <p>Estudio de Valoración Económica Ambiental</p>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </header>
+
+        <main class="survey-container">
+            <form id="surveyForm" onsubmit="return false;">
+
+                <section id="step1" class="step active">
+                    <div class="step-header">
+                        <span class="step-number">01</span>
+                        <h2>Contexto General</h2>
+                    </div>
+                    <div class="card">
+                        <p class="intro-text">
+                            Este estudio académico busca conocer la opinión de la sociedad boliviana sobre la
+                            restauración del Lago Poopó.
+                            Sus respuestas son <strong>anónimas</strong> y fundamentales para la toma de decisiones.
+                        </p>
+
+                        <div class="form-group">
+                            <label for="conoce">1. ¿Conoce usted la situación actual de sequía y contaminación del Lago
+                                Poopó?</label>
+                            <div class="select-wrapper">
+                                <select id="conoce" required>
+                                    <option value="" disabled selected>Seleccione una opción...</option>
+                                    <option value="Si">Sí, estoy informado</option>
+                                    <option value="Poco">He escuchado algo</option>
+                                    <option value="No">No conozco</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="gravedad">2. ¿Cuán grave considera este problema ambiental?</label>
+                            <div class="select-wrapper">
+                                <select id="gravedad" required>
+                                    <option value="" disabled selected>Seleccione una opción...</option>
+                                    <option value="Muy Grave">Muy Grave</option>
+                                    <option value="Grave">Grave</option>
+                                    <option value="Poco Grave">Poco Grave</option>
+                                    <option value="Nada Grave">Nada Grave</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button type="button" class="btn btn-primary" onclick="nextStep(2)">Continuar</button>
+                    </div>
+                </section>
+
+                <section id="step2" class="step">
+                    <div class="step-header">
+                        <span class="step-number">02</span>
+                        <h2>Escenario de Valoración</h2>
+                    </div>
+
+                    <p class="scenario-intro">A continuación, compare las dos situaciones posibles para el futuro del
+                        lago. Actualmente, la contaminación minera y la sequía amenazan su existencia irreversiblemente.
+                    </p>
+
+                    <div class="scenario-image mb-3"
+                        style="border-radius: 12px; overflow: hidden; height: 180px; margin-bottom: 24px;">
+                        <div class="overlay">
+                            <span class="badge badge-danger" style="position: absolute; top: 10px; left: 10px;">Causa
+                                Principal: Contaminación</span>
+                        </div>
+                        <img src="img/contaminacion.jpg" alt="Contaminación minera en afluentes"
+                            style="width: 100%; height: 100%; object-fit: cover;"
+                            onerror="this.src='https://placehold.co/800x200/5d4037/ffffff?text=Imagen+Contaminacion+Minera+NO+ENCONTRADA'">
+                    </div>
+
+                    <div class="scenarios-grid">
+                        <div class="scenario-card status-quo">
+                            <div class="scenario-image">
+                                <img src="img/sequia.jpg" alt="Lago Poopó Seco con botes abandonados"
+                                    onerror="this.src='https://placehold.co/600x400/8d6e63/ffffff?text=Lago+Seco+(Sin+Proyecto)+NO+ENCONTRADO'">
+                                <div class="overlay">
+                                    <span class="badge badge-danger">Situación Actual</span>
+                                </div>
+                            </div>
+                            <div class="scenario-content">
+                                <h3>Sin Proyecto</h3>
+                                <ul>
+                                    <li><span class="icon">🍂</span> El lago permanece seco la mayor parte del año.</li>
+                                    <li><span class="icon">☠️</span> Contaminación minera (metales pesados) sin
+                                        tratamiento.</li>
+                                    <li><span class="icon">🚫</span> Pérdida total de pesca y hábitat de aves.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="scenario-card project">
+                            <div class="scenario-image">
+                                <img src="img/restaurado_ia.png" alt="Lago Restaurado con Flamencos"
+                                    onerror="this.src='https://placehold.co/600x400/0288d1/ffffff?text=Lago+Restaurado+(Con+Proyecto)+NO+ENCONTRADO'">
+                                <div class="overlay">
+                                    <span class="badge badge-success">Con Proyecto</span>
+                                </div>
+                            </div>
+                            <div class="scenario-content">
+                                <h3>Plan Director</h3>
+                                <p>Implementación de un <strong>Fondo Fiduciario</strong> auditado para:</p>
+                                <ul>
+                                    <li><span class="icon">💧</span> Tratar las aguas ácidas de las minas.</li>
+                                    <li><span class="icon">🌊</span> Dragar el Río Desaguadero para asegurar caudal.
+                                    </li>
+                                    <li><span class="icon">🦩</span> Restaurar el hábitat para aves y peces.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="budget-reminder"
+                        style="background: #e3f2fd; border-left-color: #2196f3; color: #0d47a1; margin-top: 20px;">
+                        <span class="icon">ℹ️</span>
+                        <p>
+                            <strong>Importante:</strong> Considere que este plan es <em>solo</em> para la restauración
+                            del Lago Poopó.
+                            No resolverá otros problemas ambientales nacionales (como el Lago Titicaca o la
+                            deforestación).
+                        </p>
+                    </div>
+
+                    <div class="budget-reminder">
+                        <span class="icon">💡</span>
+                        <p>Recuerde que cualquier aporte saldría de su presupuesto familiar, reduciendo su capacidad de
+                            gasto en otras cosas.</p>
+                    </div>
+
+                    <div class="actions">
+                        <button type="button" class="btn btn-secondary" onclick="prevStep(1)">Atrás</button>
+                        <button type="button" class="btn btn-primary" onclick="iniciarBidding()">Ir a la
+                            Votación</button>
+                    </div>
+                </section>
+
+                <section id="step3" class="step">
+                    <div class="step-header">
+                        <span class="step-number">03</span>
+                        <h2>Su Decisión</h2>
+                    </div>
+
+                    <div class="card valuation-card">
+                        <p class="valuation-context">
+                            Para garantizar que el dinero se use <strong>exclusivamente</strong> para la restauración,
+                            se crearía un <strong>Fondo Fiduciario Independiente</strong> (auditado internacionalmente).
+                            <br><br>
+                            El aporte sería una contribución mensual fija por <strong>10 años</strong>.
+                        </p>
+
+                        <div id="pregunta1" class="valuation-question active">
+                            <div class="price-display">
+                                <span class="currency">Bs.</span>
+                                <span id="lblMonto1" class="amount">0</span>
+                                <span class="period">/ mes</span>
+                            </div>
+                            <p class="question-text">Si este fuera el costo para su hogar:</p>
+                            <label class="main-question">¿Votaría usted A FAVOR de este plan?</label>
+
+                            <div class="vote-buttons">
+                                <button type="button" class="btn-vote yes" onclick="procesarRespuesta1('SI')">
+                                    <span class="icon">👍</span> SÍ, Pagaría
+                                </button>
+                                <button type="button" class="btn-vote no" onclick="procesarRespuesta1('NO')">
+                                    <span class="icon">👎</span> NO Pagaría
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="pregunta2" class="valuation-question">
+                            <p id="textoPregunta2" class="follow-up-text">...</p>
+                            <div class="price-display small">
+                                <span class="currency">Bs.</span>
+                                <span id="lblMonto2" class="amount">0</span>
+                                <span class="period">/ mes</span>
+                            </div>
+                            <label class="main-question">¿Estaría dispuesto a pagar este monto?</label>
+
+                            <div class="vote-buttons">
+                                <button type="button" class="btn-vote yes" onclick="procesarRespuesta2('SI')">
+                                    <span class="icon">👍</span> SÍ
+                                </button>
+                                <button type="button" class="btn-vote no" onclick="procesarRespuesta2('NO')">
+                                    <span class="icon">👎</span> NO
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="step4" class="step">
+                    <div class="step-header">
+                        <span class="step-number">04</span>
+                        <h2>Datos Finales</h2>
+                    </div>
+
+                    <div class="card">
+                        <div id="divRazon" class="form-group hidden">
+                            <label class="warning-label">Vemos que no apoyaría el plan. ¿Cuál es la razón
+                                principal?</label>
+                            <div class="select-wrapper">
+                                <select id="razon">
+                                    <option value="">Seleccione...</option>
+                                    <option value="Economica">No me alcanza el dinero (Restricción)</option>
+                                    <option value="Desconfianza">No creo que el dinero se use bien</option>
+                                    <option value="Responsabilidad">El gobierno/mineras deberían pagar</option>
+                                    <option value="NoInteres">No me interesa el lago</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div id="divCerteza" class="form-group hidden">
+                            <label>¿Qué tan seguro está de que pagaría esa cantidad?</label>
+                            <div class="select-wrapper">
+                                <select id="certeza">
+                                    <option value="MuySeguro">Muy Seguro</option>
+                                    <option value="Seguro">Seguro</option>
+                                    <option value="PocoSeguro">Poco Seguro/Incierto</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <hr class="divider">
+
+                        <h3>Datos Estadísticos</h3>
+
+                        <div class="form-group">
+                            <label for="visita">¿Ha visitado alguna vez el Lago Poopó?</label>
+                            <div class="select-wrapper">
+                                <select id="visita" required>
+                                    <option value="" disabled selected>Seleccione...</option>
+                                    <option value="Si">Sí, lo he visitado</option>
+                                    <option value="No">No, nunca he ido</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ambientalista">¿Pertenece usted a alguna organización ambientalista?</label>
+                            <div class="select-wrapper">
+                                <select id="ambientalista" required>
+                                    <option value="" disabled selected>Seleccione...</option>
+                                    <option value="No">No</option>
+                                    <option value="Si">Sí</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label for="genero">Género</label>
+                                <div class="select-wrapper">
+                                    <select id="genero">
+                                        <option value="F">Femenino</option>
+                                        <option value="M">Masculino</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="edad">Edad</label>
+                                <input type="number" id="edad" placeholder="Ej: 35" min="18" max="99">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="educacion">Nivel Educativo</label>
+                            <div class="select-wrapper">
+                                <select id="educacion">
+                                    <option value="Primaria">Primaria</option>
+                                    <option value="Secundaria">Secundaria</option>
+                                    <option value="Tecnico">Técnico</option>
+                                    <option value="Universitario">Universitario</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ingreso">Ingreso Familiar Mensual (Aprox)</label>
+                            <div class="select-wrapper">
+                                <select id="ingreso">
+                                    <option value="<1500">Menos de 1.500 Bs</option>
+                                    <option value="1500-3000">1.500 - 3.000 Bs</option>
+                                    <option value="3000-5000">3.000 - 5.000 Bs</option>
+                                    <option value=">5000">Más de 5.000 Bs</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <p id="msgError" class="error-message hidden">Por favor complete todos los campos requeridos.
+                        </p>
+                    </div>
+
+                    <div class="actions">
+                        <button type="button" class="btn btn-primary" id="btnEnviar" onclick="enviarDatos()">Enviar
+                            Respuestas</button>
+                    </div>
+                </section>
+
+                <section id="step5" class="step">
+                    <div class="success-card">
+                        <div class="success-icon">🎉</div>
+                        <h2>¡Gracias por participar!</h2>
+                        <p>Sus respuestas han sido registradas exitosamente en nuestra base de datos.</p>
+                        <p class="subtext">Puede cerrar esta ventana.</p>
+                    </div>
+                </section>
+
+            </form>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
